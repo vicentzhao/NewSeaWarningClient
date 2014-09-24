@@ -94,7 +94,6 @@ public class HomeContactActivity extends Activity {
 		children = new View[]{leftView, acbuwaPage};
 		scrollView.initViews(children, new SizeCallBackForMenu(this.menuBtn), this.menuList);
 		scrollView.setMenuBtn(this.menuBtn);
-
 		addContactBtn = (Button) findViewById(R.id.addContactBtn);
 		addContactBtn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {

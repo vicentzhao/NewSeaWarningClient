@@ -3,11 +3,32 @@
   	xmlns:android="http://schemas.android.com/apk/res/android"
   	android:layout_width="fill_parent"
   	android:layout_height="fill_parent">
-<ListView android:id="@+id/myListView"
+  	<RelativeLayout
+        android:id="@+id/acbuwa_topbar"
+        style="@style/topbar_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="46.0dip" >
+       <!--  <Button
+            android:id="@+id/menuBtn"
+            style="@style/topbar_left_btn"
+            android:background="@drawable/menu_unfold" /> -->
+        <TextView
+            android:id="@+id/topbar_title"
+            style="@style/topbar_text"
+            android:text="联系人" />
+        <Button
+            android:id="@+id/addContactBtn"
+            style="@style/topbar_right_btn"
+            android:background="@drawable/add_contact" />
+    </RelativeLayout>
+<ListView 
+    android:layout_below="@+id/acbuwa_topbar"
+    android:id="@+id/myListView"
    	android:layout_width="fill_parent"
    	android:layout_height="fill_parent"
 />
 <xu.ye.view.SideBar
+    android:layout_below="@+id/acbuwa_topbar"
 	android:id = "@+id/sideBar"
    	android:layout_height="fill_parent"
    	android:layout_width="40px"
@@ -20,7 +41,6 @@
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:layout_marginRight="120dp"
-   	android:layout_alignParentRight="true"
     android:layout_marginTop="20dp"
     android:textSize="40dp"
     android:gravity="center"

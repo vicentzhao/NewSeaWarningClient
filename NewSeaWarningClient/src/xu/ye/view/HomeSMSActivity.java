@@ -58,7 +58,6 @@ public class HomeSMSActivity extends Activity {
 				BaseIntentUtil.intentSysDefault(HomeSMSActivity.this, MessageBoxList.class, map);
 			}
 		});
-		
 		newSms = (Button) findViewById(R.id.newSms);
 		newSms.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -66,6 +65,4 @@ public class HomeSMSActivity extends Activity {
 			}
 		});
 	}
-
-
 }

@@ -62,14 +62,16 @@ public class HomeSMSAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		
-		holder.name.setText(list.get(position).getAddress());
+//		holder.name.setText(list.get(position).getAddress());
+		if("".equals(list.get(position).getTruename())){
+			holder.name.setText(list.get(position).getAddress());
+		}else{
+			holder.name.setText(list.get(position).getTruename());
+		}
 		holder.count.setText("(" + list.get(position).getMsg_count() + ")");
-		
 		this.d.setTime(list.get(position).getDate());
 		holder.date.setText(this.sdf.format(d));
-		
 		holder.content.setText(list.get(position).getMsg_snippet());
-
 		convertView.setTag(holder);
 		return convertView;
 	}   

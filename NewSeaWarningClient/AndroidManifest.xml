@@ -21,6 +21,9 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+     <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name="xu.ye.application.MyApplication"
@@ -28,7 +31,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:name="xu.ye.view.HomeTabHostAcitivity"
+            android:name="xu.ye.view.SeanWarningTabHostAcitivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
@@ -68,6 +71,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" >
         </activity>
+        
+        <activity
+            android:name="xu.ye.view.HomeTabHostAcitivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" >
+        </activity>
         <activity
             android:name="xu.ye.view.sms.NewSMSActivity"
             android:screenOrientation="portrait"
@@ -75,6 +84,16 @@
         </activity>
         <activity
             android:name="xu.ye.view.sms.SelectContactsToSendActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="xu.ye.view.ArgCisActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="xu.ye.view.TaskActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
         </activity>

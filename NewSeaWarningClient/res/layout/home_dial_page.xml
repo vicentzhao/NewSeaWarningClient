@@ -68,6 +68,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/dial_delete3" />
+            <Button
+                android:layout_marginLeft="5dip"
+                android:layout_marginBottom="2dip"
+                android:id="@+id/invisiable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/menu_fold_ori_down" />
         </LinearLayout>
 
         <LinearLayout

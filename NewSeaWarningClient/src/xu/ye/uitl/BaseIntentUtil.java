@@ -60,7 +60,7 @@ public class BaseIntentUtil {
 	 * �Զ��嶯��
 	 * @param activity
 	 * @param classes
-	 * @param paramMap  �������
+	 * @param paramMap  
 	 * @param enterAnim enter��ԴID
 	 * @param exitAnim  exit��ԴID
 	 */
@@ -71,7 +71,6 @@ public class BaseIntentUtil {
 			activity.overridePendingTransition(enterAnim, exitAnim);
 		}
 	}
-	
 	/**
 	 * ϵͳĬ��
 	 * @param activity

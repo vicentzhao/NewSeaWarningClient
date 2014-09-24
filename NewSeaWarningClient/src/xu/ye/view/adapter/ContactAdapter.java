@@ -55,6 +55,11 @@ public class ContactAdapter extends BaseAdapter implements SectionIndexer {
 	public long getItemId(int arg0) {
 		return 0;
 	}
+	
+	public void remove(int position){
+		beans.remove(position);
+		stringArray.remove(position);
+	}
 
 	public View getView(int position, View v, ViewGroup parent) {
 		LayoutInflater inflate = ((Activity) context).getLayoutInflater();

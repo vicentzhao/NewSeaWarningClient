@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xu.ye.bean.SMSBean;
+import xu.ye.view.ContactInfoService;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
@@ -121,9 +122,7 @@ public class RexseeSMS {
 			return list;  
 		}  
 	}  
-	
 	public List<SMSBean> getThreadsNum(List<SMSBean> ll){
-		
 		Cursor cursor = null;  
 		ContentResolver contentResolver = mContext.getContentResolver();  
 		List<SMSBean> list=new ArrayList<SMSBean>();
@@ -133,11 +132,12 @@ public class RexseeSMS {
 				if (cursor == null || cursor.getCount() == 0) return list;  
 				cursor.moveToFirst();
 				mmt.setAddress(cursor.getString(2));
+//				mmt.setTruename(ContactInfoService.getInstance(mContext).getContactNameFromPhoneBook(mContext, cursor.getString(2)));
+				mmt.setTruename(cursor.getString(cursor.getColumnIndex("person")));
 				mmt.setDate(cursor.getLong(4));
 				mmt.setRead(cursor.getString(6));
 				list.add(mmt);
 			}
-				
 			return list;  
 //		} catch (Exception e) {  
 //			Log.e("getThreadsNum", "getThreadsNum-------------");

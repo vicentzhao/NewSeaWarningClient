@@ -92,7 +92,6 @@ public class ContactHomeAdapter extends BaseAdapter{
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		
 		ContactBean cb = list.get(position);
 		String name = cb.getDisplayName();
 		String number = cb.getPhoneNum();

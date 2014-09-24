@@ -6,6 +6,7 @@ public class SMSBean {
 	private String msg_count;
 	private String msg_snippet;
 	private String address;
+	private String truename; //联系人的真实名字
 	private Long date;
 	private String read;
 	
@@ -17,6 +18,12 @@ public class SMSBean {
 	public SMSBean() {
 	}
 	
+	public String getTruename() {
+		return truename;
+	}
+	public void setTruename(String truename) {
+		this.truename = truename;
+	}
 	public String getAddress() {
 		return address;
 	}

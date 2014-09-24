@@ -52,6 +52,7 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 	
 	private Button phone_view;
 	private Button delete;
+	private Button invisiable;  //拨号盘点击消失
 	private Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 	private SoundPool spool;
 	private AudioManager am = null;
@@ -79,7 +80,6 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 				dialPadShow();
 			}
 		});
-		
 		am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
 		spool = new SoundPool(11, AudioManager.STREAM_SYSTEM, 5);
@@ -138,6 +138,8 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 			}
 		});
 		delete = (Button) findViewById(R.id.delete);
+		invisiable=(Button) findViewById(R.id.invisiable);
+		invisiable.setOnClickListener(this);
 		delete.setOnClickListener(this);
 		delete.setOnLongClickListener(new OnLongClickListener() {
 			public boolean onLongClick(View v) {
@@ -145,14 +147,11 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 				return false;
 			}
 		});
-		
 		for (int i = 0; i < 12; i++) {
 			View v = findViewById(R.id.dialNum1 + i);
 			v.setOnClickListener(this);
 		}
-		
 		init();
-		
 	}
 	
 	private void init(){
@@ -316,6 +315,12 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.delete:
 			delete();
+			break;
+		case R.id.invisiable:
+			if(bohaopan.getVisibility() == View.VISIBLE){
+				bohaopan.setVisibility(View.GONE);
+				keyboard_show_ll.setVisibility(View.VISIBLE);
+			}
 			break;
 		case R.id.phone_view:
 			if (phone_view.getText().toString().length() >= 4) {

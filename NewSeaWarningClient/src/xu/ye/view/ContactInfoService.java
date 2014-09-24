@@ -6,6 +6,7 @@ import java.util.Date;
 
 import xu.ye.bean.ContactBean;
 import xu.ye.bean.PhoneLog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.CallLog;
@@ -80,7 +81,7 @@ public class ContactInfoService {
 	 * @param name
 	 * @return
 	 */
-	public Cursor getContact(String name) {
+	/*public Cursor getContact(String name) {
 
 		final String select = ContactsContract.CommonDataKinds.Phone.NUMBER
 				+ " like '" + name + "%'";
@@ -88,8 +89,59 @@ public class ContactInfoService {
 				ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
 				selPhoneCols, select, null, "sort_key_alt");
 		return cur;
-	}
+	}*/
+    public String getContactNameFromPhoneBook(Context context, String phoneNum) {  
+    	
+    	if(null==phoneNum||"".equals(phoneNum)){
+    		return "";
+    	}
+    	
+        String contactName = "";  
+        
+        ContentResolver cr = context.getContentResolver();  
+        Cursor pCur = cr.query(  
+                ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,  
+                ContactsContract.CommonDataKinds.Phone.NUMBER + " = ?",  
+                new String[] { phoneNum }, null);  
+        if (pCur.moveToFirst()) {  
+            contactName = pCur  
+                    .getString(pCur  
+                            .getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));  
+            pCur.close();  
+        }else{
+        	if(phoneNum.startsWith("+86")){
+        		String substring = phoneNum.substring(3, phoneNum.length());
+        		System.out.println(substring);
+        		return getContactNameFromPhoneBook(context,substring);
+        	}
+        }
+        return contactName;  
+    }  
 
+	
+//    private String getPeopleNameFromPerson(String address){  
+//        if(address == null || address == ""){  
+//            return null;  
+//        }  
+//          
+//        String strPerson = "null";  
+//        String[] projection = new String[] {Phone.DISPLAY_NAME, Phone.NUMBER};  
+//          
+//        Uri uri_Person = Uri.withAppendedPath(ContactsContract.CommonDataKinds.Phone.CONTENT_FILTER_URI, address);  // address 手机号过滤  
+//        Cursor cursor = getContentResolver().query(uri_Person, projection, null, null, null);  
+//          
+//        if(cursor.moveToFirst()){  
+//            int index_PeopleName = cursor.getColumnIndex(Phone.DISPLAY_NAME);  
+//            String strPeopleName = cursor.getString(index_PeopleName);  
+//            strPerson = strPeopleName;  
+//        }  
+//        else{  
+//            strPerson = address;  
+//        }  
+//        cursor.close();  
+//        cursor=null;  
+//        return strPerson;  
+//    } 
 	/**
 	 * 获取全部联系人电话
 	 * 
@@ -144,6 +196,7 @@ public class ContactInfoService {
 							if (!name.equals(phoneNumber)) {
 								cb.setDisplayName(name);
 							}
+							cb.setContactId(Integer.parseInt(contactId));
 						} while (phone.moveToNext());
 					}
 				}

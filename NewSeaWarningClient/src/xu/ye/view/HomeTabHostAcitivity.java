@@ -31,26 +31,21 @@ public class HomeTabHostAcitivity extends TabActivity {
 	private int currIndex = 0;
 	private int bmpW;
 	private ImageView[] views;
-	private int TABNUM =4;//tabhost的数量
+	private int TABNUM =3;//tabhost的数量
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_hometabhost);
 
 		SystemScreenInfo.getSystemInfo(HomeTabHostAcitivity.this);
-
 		InitImageView();
-
-
 		mTabWidget = (TabWidget) findViewById(android.R.id.tabs);
 		mTabHost = (AnimationTabHost) findViewById(android.R.id.tabhost);
-
 		new Handler().postDelayed(new Runnable() {
 			public void run() {
 				initBottomMenu();
 			}
 		}, 300);
-
 		init();
 	}
 
@@ -72,7 +67,6 @@ public class HomeTabHostAcitivity extends TabActivity {
 		}
 		return result;
 	}
-
 	private void initBottomMenu() {
 		int viewCount = mTabWidget.getChildCount();
 		views = new ImageView[viewCount];
@@ -89,20 +83,16 @@ public class HomeTabHostAcitivity extends TabActivity {
 			}
 		});
 	}
-
 	private void init() {
 		setIndicator("拨号", 0, new Intent(this, HomeDialActivity.class), R.drawable.tab_dial_selected);
 //		setIndicator("联系人", 1, new Intent(this, HomeContactActivity.class), R.drawable.tab_contact_normal);
+		setIndicator("联系人",1, new Intent(this, ContactActivity.class), R.drawable.tab_contact_normal);
 		setIndicator("信息", 2, new Intent(this, HomeSMSActivity.class), R.drawable.tab_sms_normal);
-		setIndicator("联系人", 1, new Intent(this, ContactActivity.class), R.drawable.tab_contact_normal);
-
 //		setIndicator("设置", 3, new Intent(this, HomeSettintActivity.class), R.drawable.tab_settings_normal);
 		mTabHost.setOpenAnimation(true);
 //		onPageSelected(1);
 	}
-
 	private void setIndicator(String ss, int tabId, Intent intent, int image_id) {
-
 		View localView = LayoutInflater.from(this.mTabHost.getContext()).inflate(R.layout.tab_widget_view, null);
 		((ImageView) localView.findViewById(R.id.main_activity_tab_image)).setImageResource(image_id);
 		((TextView) localView.findViewById(R.id.main_activity_tab_text)).setText(ss);
@@ -123,10 +113,8 @@ public class HomeTabHostAcitivity extends TabActivity {
 		matrix.postTranslate(offset, 0);
 		cursor.setImageMatrix(matrix);
 	}
-
 	public void onPageSelected(int arg0) {
-
-		int one = offset + bmpW;
+		int one = offset*2 + bmpW;
 		Animation animation = null;
 		animation = new TranslateAnimation(one * currIndex, one * arg0 , 0, 0);
 		currIndex = arg0;
@@ -134,15 +122,12 @@ public class HomeTabHostAcitivity extends TabActivity {
 		animation.setDuration(300);
 		cursor.startAnimation(animation);
 	}
-
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 		}
 		return false;
 	}
-
 	protected void onDestroy() {
 		super.onDestroy();
 	}
-
 }
