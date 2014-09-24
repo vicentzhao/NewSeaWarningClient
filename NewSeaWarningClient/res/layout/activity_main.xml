@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent">
+<ListView android:id="@+id/myListView"
+   	android:layout_width="fill_parent"
+   	android:layout_height="fill_parent"
+/>
+<xu.ye.view.SideBar
+	android:id = "@+id/sideBar"
+   	android:layout_height="fill_parent"
+   	android:layout_width="40px"
+   	android:layout_alignParentRight="true"
+/>
+
+<TextView
+    android:layout_centerInParent="true"
+    android:id="@+id/tvScrollSectionShow"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginRight="120dp"
+   	android:layout_alignParentRight="true"
+    android:layout_marginTop="20dp"
+    android:textSize="40dp"
+    android:gravity="center"
+    android:background="#44225a1f"
+    android:text="L"
+    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

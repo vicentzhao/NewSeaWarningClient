@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World!</string>
+	<string name="carol">carol</string>
+	<string name="app_name">SortableContactList</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="task_instruct_num">指令编号：A901</string>
+    <string name="task_date">2014-09-19</string>
+    <string name="task_source">来源：指挥中心</string>
+    <string name="title_activity_sms">SMSActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+	
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ContactActivity" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_taskitem_time"
+        android:layout_below="@+id/textView1"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text="经过测试，我们需要把A点的设备移动到B点，现在需要各个部门协调作战，谢谢大家！" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="5dp"
+        android:text="约30分钟" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:text="地图" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignTop="@+id/textView3"
+        android:text="完成状况" />
+
+    <TextView
+        android:id="@+id/textview08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:text="|" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textview08"
+        android:layout_alignBottom="@+id/textview08"
+        android:layout_toRightOf="@+id/textview08"
+        android:text="20公里" />
+
+    
+
+    
+
+</RelativeLayout>
